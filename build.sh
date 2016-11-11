@@ -1,4 +1,4 @@
 #!/bin/sh
 
-setup.sh
+./setup.sh
 make 
