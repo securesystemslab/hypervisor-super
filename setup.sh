@@ -3,10 +3,11 @@
 
 if [ ! -f .setup.done  ] ; then
     cd multicompiler/llvm/tools
-    ln -s ../../clang .
+    ln -s -f ../../clang .
     cd ../projects
-    ln -s ../../compiler-rt .
-    ln -s ../../poolalloc .
-    ln -s ../../svf .
+    ln -s -f ../../compiler-rt .
+    ln -s -f ../../poolalloc .
+    ln -s -f ../../svf .
+    cd ../../..
     touch .setup.done
 fi
