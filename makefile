@@ -9,7 +9,7 @@ multicompiler:
 hypervisor/.hypervisor_configured:
 	./configure_hypervisor.sh
 
-cross_compiler: hypervisor/.cross_compiler_created
+cross_compiler: hypervisor/.cross_compiler_created hypervisor/.hypervisor_configured
 
 hypervisor/.cross_compiler_created: multicompiler
 	./build_cross_compiler.sh
