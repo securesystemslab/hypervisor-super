@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 if [ ! -f hypervisor/.cross_compiler_created  ] ; then
     cd hypervisor
