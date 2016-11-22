@@ -1,4 +1,4 @@
-.PHONY: clean multicompiler hypervisor
+.PHONY: clean multicompiler hypervisor cross_compiler
 
 all: hypervisor
 
@@ -9,6 +9,7 @@ multicompiler:
 hypervisor/.hypervisor_configured:
 	./configure_hypervisor.sh
 
+cross_compiler: hypervisor/.cross_compiler_created
 
 hypervisor/.cross_compiler_created: multicompiler
 	./build_cross_compiler.sh
