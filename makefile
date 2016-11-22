@@ -6,8 +6,6 @@ multicompiler:
 	$(MAKE) -C multicompiler install
 
 
-hypervisor: hypervisor/.hypervisor_configured multicompiler
-
 hypervisor/.hypervisor_configured:
 	./configure_hypervisor.sh
 
