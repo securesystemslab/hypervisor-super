@@ -10,7 +10,7 @@ hypervisor/.hypervisor_configured:
 	./configure_hypervisor.sh
 
 
-hypervisor/.cross_compiler_created:
+hypervisor/.cross_compiler_created: multicompiler
 	./build_cross_compiler.sh
 
 
