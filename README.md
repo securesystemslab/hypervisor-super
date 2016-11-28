@@ -4,7 +4,7 @@ A super project to simplifiy building the Bareflank Hypervisor using the Secure 
 Originally this began as a set of submodules, but due to the in-development nature of both te hypervisor and Multicompiler, this became unwieldy. Until git provides a sane way to manage projects composed of many pieces, we're going to simply clone our subprojects directly. 
 
 ### Checkout the Multicompiler super project
-`git clone -b no-submodules git@github.com:/ilovepi/multicompiler.git`
+`git clone -b no-submodules git@github.com:/ilovepi/multicompiler-automation.git multicompiler`
 
 #### Clone LLVM, Clang, compiler-rt, poolalloc, and SVF into the Multicompiler project:
 
@@ -19,7 +19,7 @@ Originally this began as a set of submodules, but due to the in-development natu
 `git clone git@github.com:/rboggild/SVF multicompiler/llvm/projects/svf`
 
 ### Checkout our fork of the Bareflank Hypervisor
-`git clone git@github.com:/ilovepi/hypervisor.git`
+`git clone git@github.com:/ilovepi/hypervisor.git hypervisor`
 
 ### Using Ansible
 
@@ -33,7 +33,9 @@ cd provision
 ansible-galaxy install -r requirements.yml
 ansible-playbook -i inventory playbook.yml
 ```
+This will install the project to a folder named project, but that cna be changed by providing the varialbe `project_root` the desired location to install in either the commandline invocation, in `playbook.yml`, or in a `vars` file.
 
+See http://docs.ansible.com/ansible/playbooks_roles.html for more detailed information.
 
 
 
