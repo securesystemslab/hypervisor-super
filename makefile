@@ -1,4 +1,4 @@
-.PHONY: clean multicompiler hypervisor
+.PHONY: clean multicompiler hypervisor cross_compiler
 
 all: hypervisor
 
@@ -6,13 +6,12 @@ multicompiler:
 	$(MAKE) -C multicompiler install
 
 
-#hypervisor: hypervisor/.hypervisor_configured multicompiler
-
-hypervisor/.hypervisor_configured:
+hypervisor/.hypervisor_configured: hypervisor/.cross_compiler_created
 	./configure_hypervisor.sh
 
+cross_compiler: hypervisor/.cross_compiler_created hypervisor/.hypervisor_configured
 
-hypervisor/.cross_compiler_created:
+hypervisor/.cross_compiler_created: multicompiler
 	./build_cross_compiler.sh
 
 
@@ -22,6 +21,6 @@ clean_cross_compiler:
 clean_hypervisor_configured:
 	rm hypervisor/.hypervisor_configured
 
-hypervisor: hypervisor/.hypervisor_configured  hypervisor/.cross_compiler_created multicompiler
+hypervisor: cross_compiler
 	$(MAKE) -C hypervisor
 

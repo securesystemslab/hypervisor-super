@@ -1,6 +1,0 @@
-[submodule "hypervisor"]
-	path = hypervisor
-	url = git@github.com:ilovepi/hypervisor.git
-[submodule "multicompiler"]
-	path = multicompiler
-	url = git@github.com:ilovepi/multicompiler-automation.git
