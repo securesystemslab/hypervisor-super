@@ -31,11 +31,14 @@ The project can installed by:
 git clone -b jenkins https://github.com/ilovepi/vagrant-ansible-provisioning.git provision
 cd provision
 ansible-galaxy install -r requirements.yml
-ansible-playbook -i inventory playbook.yml
+ansible-playbook -i inventory playbook.yml --tags initialize
 ```
+NOTE: omit the `--tags initialize` to also imediatly build the multicompiler and hypervisor
+
 This will install the project to a folder named project, but that cna be changed by providing the varialbe `project_root` the desired location to install in either the commandline invocation, in `playbook.yml`, or in a `vars` file.
 
 See http://docs.ansible.com/ansible/playbooks_roles.html for more detailed information.
+
 
 
 
