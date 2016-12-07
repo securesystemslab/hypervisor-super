@@ -2,8 +2,8 @@
 
 all: hypervisor
 
-multicompiler:
-	$(MAKE) -C multicompiler install
+#multicompiler:
+	#$(MAKE) -C multicompiler install
 
 
 hypervisor/.hypervisor_configured: hypervisor/.cross_compiler_created
@@ -11,7 +11,8 @@ hypervisor/.hypervisor_configured: hypervisor/.cross_compiler_created
 
 cross_compiler: hypervisor/.cross_compiler_created hypervisor/.hypervisor_configured
 
-hypervisor/.cross_compiler_created: multicompiler
+#hypervisor/.cross_compiler_created: multicompiler
+hypervisor/.cross_compiler_created:
 	./build_cross_compiler.sh
 
 
