@@ -7,8 +7,8 @@ export CUSTOM_FETCH_BINUTILS=$(realpath scripts/fetch_gold.sh)
 export CUSTOM_FETCH_BINUTILS=$(realpath scripts/fetch_gold.sh)
 
 export CROSS_CXXFLAGS
-export CROSS_CCFLAGS
-export CROSS_LDFLAGS
+export CROSS_CCFLAGS:=${CROSS_CXXFLAGS}
+export CROSS_LDFLAGS:=${CROSS_CXXFLAGS}
 
 
 all: hypervisor
