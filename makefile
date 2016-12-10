@@ -1,4 +1,4 @@
-.PHONY: clean multicompiler hypervisor cross_compiler
+.PHONY: clean multicompiler hypervisor cross_compiler test
 
 
 export CUSTOM_FETCH_CLANG=$(realpath scripts/fetch_multicompiler.sh)
@@ -36,6 +36,13 @@ clean_cross_compiler:
 clean_hypervisor_configured:
 	rm hypervisor/.hypervisor_configured
 
+
+clean:
+	$(MAKE) -C hypervisor clean
+
 hypervisor: cross_compiler
 	$(MAKE) -C hypervisor
 
+
+test:
+	$(MAKE) -C hypervisor test
