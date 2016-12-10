@@ -30,8 +30,19 @@ hypervisor/.cross_compiler_created:
 	./build_cross_compiler.sh
 
 
+hypervisor: cross_compiler
+	$(MAKE) -C hypervisor
+
+
+test:
+	$(MAKE) -C hypervisor test
+
+
+# Clean targets
+
 clean_cross_compiler:
 	rm hypervisor/.cross_compiler_created
+
 
 clean_hypervisor_configured:
 	rm hypervisor/.hypervisor_configured
@@ -40,9 +51,3 @@ clean_hypervisor_configured:
 clean:
 	$(MAKE) -C hypervisor clean
 
-hypervisor: cross_compiler
-	$(MAKE) -C hypervisor
-
-
-test:
-	$(MAKE) -C hypervisor test
