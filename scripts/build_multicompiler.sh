@@ -21,7 +21,7 @@ make install
 
 
 mv $PREFIX/bin/x86_64-elf-ld $PREFIX/bin/x86_64-elf-ld.old
-ln -s $PREFIX/bin/x86_64-elf-ld.gold $PREFIX/bin/x86_64-elf-ld
+ln -s x86_64-elf-ld.gold $PREFIX/bin/x86_64-elf-ld
 
 
 mkdir -p $PREFIX/lib/bfd-plugins
