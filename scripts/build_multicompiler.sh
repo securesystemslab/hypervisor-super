@@ -21,10 +21,10 @@ make install
 
 
 mv $PREFIX/bin/x86_64-elf-ld $PREFIX/bin/x86_64-elf-ld.old
-ln -sf $PREFIX/bin/x86_64-elf-ld.gold $PREFIX/bin/x86_64-elf-ld
+ln -s $PREFIX/bin/x86_64-elf-ld.gold $PREFIX/bin/x86_64-elf-ld
 
 
 mkdir -p $PREFIX/lib/bfd-plugins
-ln -sf ../LLVMgold.so $PREFIX/lib/bfd-plugins
+ln -s ../LLVMgold.so $PREFIX/lib/bfd-plugins
 
 popd
