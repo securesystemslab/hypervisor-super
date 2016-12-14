@@ -10,7 +10,7 @@ rest.
 Either the official Bareflank repository or our fork will work equally well now
 that we have support for custom build scripts from Bareflank.
 
-
+## Installation Instructions
 ### Checkout our fork of the Bareflank Hypervisor
 
 `git clone git@github.com:/ilovepi/hypervisor.git hypervisor`
@@ -35,27 +35,21 @@ if you require no package dependencies.
 
 ## To use the Multicompiler as the Bareflank 'Native' Compiler
 
-### Checkout the Multicompiler super project
+### Checkout the Multicompiler Super Project
 
-`git clone -b no-submodules
-git@github.com:/ilovepi/multicompiler-automation.git multicompiler`
+`git clone git@github.com:/ilovepi/multicompiler-automation.git multicompiler`
 
-#### Clone LLVM, Clang, compiler-rt, poolalloc, and SVF into the Multicompiler
+#### Clone LLVM, Clang, Compiler-rt, Poolalloc, and SVF into the Multicompiler
 project:
 
 `git clone -b cfar_38 git@github.com:/securesystemslab/multicompiler-priv.git
 multicompiler/llvm`
 
-`git clone -b cfar_38
-git@github.com:/securesystemslab/multicompiler-clang-priv.git
-multicompiler/llvm/tools/clang`
+`git clone -b cfar_38 git@github.com:/securesystemslab/multicompiler-clang-priv.git multicompiler/llvm/tools/clang`
 
-`git clone -b cfar_38
-git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
-multicompiler/llvm/projects/compiler-rt`
+`git clone -b cfar_38 git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git multicompiler/llvm/projects/compiler-rt`
 
-`git clone -b cfar_38 git@github.com:/securesystemslab/poolalloc
-multicopilerllvm/projects/poolalloc`
+`git clone -b cfar_38 git@github.com:/securesystemslab/poolalloc multicopilerllvm/projects/poolalloc`
 
 `git clone git@github.com:/rboggild/SVF multicompiler/llvm/projects/svf`
 
