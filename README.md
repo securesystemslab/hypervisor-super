@@ -11,9 +11,13 @@ Either the official Bareflank repository or our fork will work equally well now
 that we have support for custom build scripts from Bareflank.
 
 ## Installation Instructions
-### Checkout our fork of the Bareflank Hypervisor
+### Checkout the Bareflank Hypervisor Source Code
 
-`git clone git@github.com:/ilovepi/hypervisor.git hypervisor`
+`git clone git@github.com:/securesystemslab/hypervisor.git hypervisor`
+
+or
+
+`git clone https://github.com/Bareflank/hypervisor.git hypervisor`
 
 
 ### Invoke Make
