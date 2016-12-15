@@ -22,7 +22,7 @@ or
 
 ### Invoke Make
 
-`$ make`
+`$ CROSS_CXXFLAGS="<desired compile flags for the hypevisor>" make`
 
 This should build Bareflank's Cross compiler using the Multicompiler source
 code and install any package dependencies. By default we use the Bareflank's
@@ -31,11 +31,21 @@ code and install any package dependencies. By default we use the Bareflank's
 to check which packages and software the setup scripts will install on your
 system, and comment out the sections you find objectionable. 
 
-You may also substitute:
+If you require no package dependencies, and want to build a local version of the cross compiler you may also substitute the following commands inplace of what is done in the build scripts:
 
-`CROSS_COMPILER=clang_38 ./tools/scripts/create_cross_compiler.sh`
+```
+cd hypervisor
+CROSS_COMPILER=clang_38 ./tools/scripts/create_cross_compiler.sh`
+touch .cross_compiler_created
+cd ..
+```
 
-if you require no package dependencies.
+To build the hypervisor:
+
+`CROSS_CXXFLAGS="<desired compile flags for the hypevisor>" make`
+
+Note: the Makefile mirrors all `CROSS_CXXFLAGS` to `CROSS_CCFLAGS` and `CROSS_LDFLAGS` 
+
 
 ## To use the Multicompiler as the Bareflank 'Native' Compiler
 
