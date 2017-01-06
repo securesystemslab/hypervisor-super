@@ -14,14 +14,15 @@ node {
     }
     stage('Build Hypervisor') {
         def config = 
-        sh 'make clean'
+        echo 'make clean'
 
-        sh 'CROSS_CXXFLAGS=${config} make'
+        echo 'CROSS_CXXFLAGS=${config} make'
     }
     stage('Unit Test') {
         sh 'make test'
-
     }
+
+
     /*
     stage('Test Kernel Module')
     {
@@ -36,9 +37,7 @@ node {
         // make sure binaries differ from standard executables
     }
     */
-        @NonCPS
-        def get_config(text){
-            
-            
-        }
+
+
+
 }
