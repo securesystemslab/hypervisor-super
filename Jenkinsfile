@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 node {
 
     stage('Preparation') { // for display purposes
@@ -6,15 +8,21 @@ node {
 
     }
     stage('Build-Cross-Compiler') {
-        //
+        // build the cross compiler
         sh 'make cross_compiler'
 
+    }
+    stage('Build Hypervisor') {
+        def config = 
+        sh 'make clean'
+
+        sh 'CROSS_CXXFLAGS=${config} make'
     }
     stage('Unit Test') {
         sh 'make test'
 
-
     }
+    /*
     stage('Test Kernel Module')
     {
         make driver_load
@@ -27,4 +35,10 @@ node {
     {
         // make sure binaries differ from standard executables
     }
+    */
+        @NonCPS
+        def get_config(text){
+            
+            
+        }
 }
