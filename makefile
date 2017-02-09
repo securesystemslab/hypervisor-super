@@ -18,7 +18,7 @@ hypervisor/.hypervisor_configured: hypervisor/.cross_compiler_created
 
 cross_compiler: hypervisor/.cross_compiler_created hypervisor/.hypervisor_configured
 
-# separate multicompiler may not be required to correctly diversify 
+# separate multicompiler may not be required to correctly diversify
 # Bareflank hypervisor. Temporarily comment out multicompiler target
 # and dependecy on multicompiler until this is confirmed.
 

@@ -14,7 +14,6 @@ mkdir -p /tmp/bareflank/build_binutils
 
 pushd /tmp/bareflank/build_binutils
 
-
 ../src_binutils/configure --enable-gold --enable-plugins --target=x86_64-elf --prefix="$PREFIX" --disable-nls --disable-werror --with-sysroot
 make -j2
 make -j2 install
