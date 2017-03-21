@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
-git clone git@github.com:/securesystemslab/hypervisor.git
+#git clone git@github.com:/securesystemslab/hypervisor.git
+git clone https://github.com/Bareflank/hypervisor.git 
 
 pushd hypervisor
 
