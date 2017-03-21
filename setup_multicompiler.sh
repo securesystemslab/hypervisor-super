@@ -1,4 +1,4 @@
-#/bin/bash -e
+#!/bin/bash -e
 
 git clone git@github.com:/securesystemslab/multicompiler-automation.git multicompiler
  

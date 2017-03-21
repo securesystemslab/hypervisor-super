@@ -1,6 +1,7 @@
 #!/bin/sh
 
-COMPILER_PATH=$HOME/compilers/clang_38/bin
+#COMPILER_PATH=$HOME/compilers/clang_38/bin
+COMPILER_PATH=$PWD/multicompiler/tools/bin
 
 if [ ! -f hypervisor/.hypervisor_configured  ] ; then
     cd hypervisor
