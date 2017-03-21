@@ -10,7 +10,28 @@ rest.
 Either the official Bareflank repository or our fork will work equally well now
 that we have support for custom build scripts from Bareflank.
 
-## Installation Instructions
+## Automated Installation Instructions
+### Invoke Setup Scripts
+
+`./setup`
+
+
+### Build the Multicompiler
+
+`make multicompiler`
+
+### Configure the Hypervisor
+
+`./configure_hypervisor.sh`
+
+
+### Build the Bareflank Hypervisor and the Hyperkernel
+
+`CROSS_CXXFLAGS="<desired compile flags for the hypevisor>" make`
+
+
+
+## Manual Installation Instructions
 ### Checkout the Bareflank Hypervisor Source Code
 
 `git clone git@github.com:/securesystemslab/hypervisor.git hypervisor`
