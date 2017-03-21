@@ -13,20 +13,20 @@ export CROSS_LDFLAGS:=${CROSS_CXXFLAGS}
 
 all: hypervisor
 
-hypervisor/.hypervisor_configured: hypervisor/.cross_compiler_created
+hypervisor/.hypervisor_configured:
 	./configure_hypervisor.sh
 
-cross_compiler: hypervisor/.cross_compiler_created hypervisor/.hypervisor_configured
+#cross_compiler: hypervisor/.cross_compiler_created hypervisor/.hypervisor_configured
 
 
 multicompiler:
 	$(MAKE) -C multicompiler install
 
-hypervisor/.cross_compiler_created: multicompiler
-	./build_cross_compiler.sh
+#hypervisor/.cross_compiler_created: multicompiler
+	#./build_cross_compiler.sh
 
 
-hypervisor: cross_compiler
+hypervisor: hypervisor/.hypervisor_configured
 	$(MAKE) -C hypervisor
 
 
