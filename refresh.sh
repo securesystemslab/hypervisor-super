@@ -5,7 +5,7 @@ pushd hypervisor
   pushd hyperkernel
    git pull
   popd
-  pushd extendedapis
+  pushd extended_apis
    git pull
  popd
 popd
