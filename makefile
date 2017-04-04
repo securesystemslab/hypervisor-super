@@ -13,24 +13,20 @@ export CROSS_LDFLAGS:=${CROSS_CXXFLAGS}
 
 all: hypervisor
 
-hypervisor/.hypervisor_configured: hypervisor/.cross_compiler_created
+hypervisor/.hypervisor_configured:
 	./configure_hypervisor.sh
 
-cross_compiler: hypervisor/.cross_compiler_created hypervisor/.hypervisor_configured
+#cross_compiler: hypervisor/.cross_compiler_created hypervisor/.hypervisor_configured
 
-# separate multicompiler may not be required to correctly diversify
-# Bareflank hypervisor. Temporarily comment out multicompiler target
-# and dependecy on multicompiler until this is confirmed.
 
-#multicompiler:
-	#$(MAKE) -C multicompiler install
+multicompiler:
+	$(MAKE) -C multicompiler install
 
 #hypervisor/.cross_compiler_created: multicompiler
-hypervisor/.cross_compiler_created:
-	./build_cross_compiler.sh
+	#./build_cross_compiler.sh
 
 
-hypervisor: cross_compiler
+hypervisor: hypervisor/.hypervisor_configured
 	$(MAKE) -C hypervisor
 
 
