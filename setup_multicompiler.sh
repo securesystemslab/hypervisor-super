@@ -4,6 +4,7 @@ git clone git@github.com:/securesystemslab/multicompiler-automation.git multicom
  
 pushd multicompiler
 
-./fetch_multicompiler.sh
+#./fetch_multicompiler.sh
+./build.sh
 
 popd
