@@ -26,7 +26,7 @@ test:
 
 # Clean targets
 clean_hypervisor_configured:
-	rm hypervisor/.hypervisor_configured
+	rm -rf hypervisor/.hypervisor_configured
 
 clean:
 	$(MAKE) -C hypervisor clean
