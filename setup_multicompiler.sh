@@ -1,10 +1,7 @@
 #!/bin/bash -e
 
-git clone git@github.com:/securesystemslab/multicompiler-automation.git multicompiler
+git clone -b ubuntu18_04 git@github.com:/securesystemslab/multicompiler-automation.git multicompiler
  
 pushd multicompiler
-
-#./fetch_multicompiler.sh
 ./build.sh
-
 popd
