@@ -1,33 +1,35 @@
-.PHONY: clean multicompiler hypervisor test
-
-#export CUSTOM_FETCH_CLANG=$(realpath scripts/fetch_multicompiler.sh)
-#export CUSTOM_BUILD_CLANG=$(realpath scripts/build_multicompiler.sh)
-#export CUSTOM_FETCH_BINUTILS=$(realpath scripts/fetch_gold.sh)
-#export CUSTOM_BUILD_BINUTILS=$(realpath scripts/build_gold.sh)
-
 export CROSS_CXXFLAGS
 export CROSS_CCFLAGS:=${CROSS_CXXFLAGS}
 export CROSS_LDFLAGS:=${CROSS_CXXFLAGS}
 
+COMPILER_PATH = $(shell pwd)/multicompiler/tools/bin
 
+.PHONY: all
 all: hypervisor
 
-hypervisor/.hypervisor_configured:
-	./configure_hypervisor.sh
-
+.PHONY: multicompiler
 multicompiler:
 	$(MAKE) -C multicompiler install
 
-hypervisor: hypervisor/.hypervisor_configured
-	$(MAKE) -C hypervisor
+.PHONY: hypervisor_using_multicompiler
+hypervisor_using_multicompiler:
+	mkdir -p build_using_multicompiler && \
+	cd build_using_multicompiler && \
+	cmake ../hypervisor -DCLANG_BIN=$(COMPILER_PATH)/clang -DLD_BIN=$(COMPILER_PATH)/ld -G Ninja && \
+	ninja
 
+.PHONY: hypervisor
+hypervisor:
+	mkdir -p build && \
+	cd build && \
+	cmake ../hypervisor -G Ninja && \
+	ninja
+
+.PHONY: test
 test:
 	$(MAKE) -C hypervisor test
 
-# Clean targets
-clean_hypervisor_configured:
-	rm -rf hypervisor/.hypervisor_configured
-
+.PHONY: clean
 clean:
-	$(MAKE) -C hypervisor clean
+	rm -rf build
 
