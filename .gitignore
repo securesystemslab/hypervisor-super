@@ -1,3 +1,5 @@
 # Sub project directories
 multicompiler/*
 hypervisor/*
+build/*
+build_using_multicompiler/*
