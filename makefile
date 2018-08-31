@@ -15,7 +15,7 @@ multicompiler:
 hypervisor_using_multicompiler:
 	mkdir -p build_using_multicompiler && \
 	cd build_using_multicompiler && \
-	cmake ../hypervisor -DCLANG_BIN=$(COMPILER_PATH)/clang -DLD_BIN=$(COMPILER_PATH)/ld -G Ninja && \
+	cmake ../hypervisor -DCLANG_BIN=$(COMPILER_PATH)/clang -DLD_BIN=$(COMPILER_PATH)/ld -DCONFIG=../hypervisor_config.cmake -G Ninja && \
 	ninja
 
 .PHONY: hypervisor

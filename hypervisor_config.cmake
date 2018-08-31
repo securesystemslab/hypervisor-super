@@ -1,9 +1,29 @@
-set(COMPILER_PATH "${CMAKE_CURRENT_LIST_DIR}/multicompiler/tools/bin")
-set(CMAKE_C_COMPILER "${COMPILER_PATH}/clang")
-set(CMAKE_CXX_COMPILER "${COMPILER_PATH}/clang")
-set(CMAKE_LINKER "${COMPILER_PATH}/ld")
-set(CMAKE_CXX_LINK_EXECUTABLE "<CMAKE_LINKER> <FLAGS> <CMAKE_CXX_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> <LINK_LIBRARIES>")
-set(CMAKE_C_LINK_EXECUTABLE "<CMAKE_LINKER> <FLAGS> <CMAKE_C_LINK_FLAGS> <LINK_FLAGS> <OBJECTS> -o <TARGET> <LINK_LIBRARIES>")
+# Turn on unittests
+set(ENABLE_BUILD_TEST ON)
 
-set(CMAKE_C_COMPILER_WORKS 1)
-set(CMAKE_CXX_COMPILER_WORKS 1)
+# Set release build for x86 architecture
+set(BUILD_TYPE Release)
+set(BUILD_TARGET_ARCH x86_64)
+
+# Set flags to use C++14 because UCI Multicompiler is currently based
+# on a clang version that does not support C++17.
+unset(BFFLAGS_VMM_CXX)
+unset(BFFLAGS_TEST_CXX)
+unset(BFFLAGS_USERSPACE_CXX)
+
+list(APPEND BFFLAGS_VMM_CXX
+    -x c++
+    -std=c++14
+)
+
+list(APPEND BFFLAGS_TEST_CXX
+    -std=c++14
+    -fvisibility-inlines-hidden
+)
+
+list(APPEND BFFLAGS_USERSPACE_CXX
+    -std=c++14
+    -fvisibility-inlines-hidden
+)
+
+
