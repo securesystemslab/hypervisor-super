@@ -9,7 +9,7 @@ multicompiler:
 hypervisor_using_multicompiler:
 	mkdir -p build_using_multicompiler && \
 	cd build_using_multicompiler && \
-	cmake ../hypervisor -DCONFIG=../hypervisor_config.cmake -G Ninja && \
+	MULTICOMPILER_C_FLAGS=${MULTICOMPILER_C_FLAGS} MULTICOMPILER_CXX_FLAGS=${MULTICOMPILER_CXX_FLAGS} MULTICOMPILER_LD_FLAGS=${MULTICOMPILER_LD_FLAGS} cmake ../hypervisor -DCONFIG=../hypervisor_config.cmake -G Ninja && \
 	ninja
 
 .PHONY: hypervisor

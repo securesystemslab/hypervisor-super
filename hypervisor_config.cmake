@@ -9,7 +9,6 @@ set(BUILD_TARGET_ARCH x86_64)
 # on a clang version that does not support C++17.
 unset(BFFLAGS_VMM_CXX)
 unset(BFFLAGS_TEST_CXX)
-unset(BFFLAGS_USERSPACE_CXX)
 
 set(VMM_TOOLCHAIN_PATH ${CMAKE_CURRENT_LIST_DIR}/multicompiler_toolchain_vmm.cmake)
 
@@ -22,10 +21,4 @@ list(APPEND BFFLAGS_TEST_CXX
     -std=c++14
     -fvisibility-inlines-hidden
 )
-
-list(APPEND BFFLAGS_USERSPACE_CXX
-    -std=c++14
-    -fvisibility-inlines-hidden
-)
-
 
