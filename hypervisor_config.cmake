@@ -11,6 +11,8 @@ unset(BFFLAGS_VMM_CXX)
 unset(BFFLAGS_TEST_CXX)
 unset(BFFLAGS_USERSPACE_CXX)
 
+set(VMM_TOOLCHAIN_PATH ${CMAKE_CURRENT_LIST_DIR}/multicompiler_toolchain_vmm.cmake)
+
 list(APPEND BFFLAGS_VMM_CXX
     -x c++
     -std=c++14

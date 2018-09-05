@@ -1,9 +1,3 @@
-export CROSS_CXXFLAGS
-export CROSS_CCFLAGS:=${CROSS_CXXFLAGS}
-export CROSS_LDFLAGS:=${CROSS_CXXFLAGS}
-
-COMPILER_PATH = $(shell pwd)/multicompiler/tools/bin
-
 .PHONY: all
 all: hypervisor
 
@@ -15,7 +9,7 @@ multicompiler:
 hypervisor_using_multicompiler:
 	mkdir -p build_using_multicompiler && \
 	cd build_using_multicompiler && \
-	cmake ../hypervisor -DCLANG_BIN=$(COMPILER_PATH)/clang -DLD_BIN=$(COMPILER_PATH)/ld -DCONFIG=../hypervisor_config.cmake -G Ninja && \
+	cmake ../hypervisor -DCONFIG=../hypervisor_config.cmake -G Ninja && \
 	ninja
 
 .PHONY: hypervisor
