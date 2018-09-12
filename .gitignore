@@ -3,3 +3,4 @@ multicompiler/*
 hypervisor/*
 build/*
 build_using_multicompiler/*
+*.swp
