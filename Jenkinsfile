@@ -7,7 +7,7 @@ pipeline {
             steps{
                 echo 'Cloning Multicompiler and Bareflank hypervisor...'
                 sh 'cd scripts'
-                sh './setup.sh'
+                sh 'setup.sh'
             }
         }
     }
