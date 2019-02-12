@@ -1,4 +1,4 @@
 #!/bin/bash -e
 
-./setup_multicompiler.sh
-./setup_hyperkernel.sh
+./scripts/setup_multicompiler.sh
+./scripts/setup_hyperkernel.sh
