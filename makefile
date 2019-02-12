@@ -21,7 +21,8 @@ hypervisor:
 
 .PHONY: test
 test:
-	$(MAKE) -C hypervisor test
+	cd build && \
+	ninja unittest
 
 .PHONY: clean
 clean:
