@@ -33,7 +33,7 @@ string(CONCAT LD_FLAGS
 
 if(EXISTS "${CMAKE_INSTALL_PREFIX}/lib/libbfdso_static.a")
     string(CONCAT LD_FLAGS
-        "--whole-archive ${CMAKE_INSTALL_PREFIX}/lib/libbfdso_static.a --no-whole-archive "
+        "${LD_FLAGS} --whole-archive ${CMAKE_INSTALL_PREFIX}/lib/libbfdso_static.a --no-whole-archive "
     )
 endif()
 
