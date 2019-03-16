@@ -22,7 +22,11 @@ RUN apt-get install -y git
 
 RUN git clone git@github.com:securesystemslab/hypervisor-super.git --depth 1
 
-WORKDIR /bfbuild/hypervisor-super/scripts
+# sudo package is required for installing other dependencies
+RUN apt-get install sudo
+
+WORKDIR /bfbuild/hypervisor-super
+RUN git clone git@github.com:/securesystemslab/multicompiler-automation.git multicompiler --depth 1
 RUN bash setup.sh
 
 # Remove SSH keys from container
