@@ -1,21 +1,39 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.04 as clone_stage
 
 WORKDIR /bfbuild
 
-# Allow SSH keys to be passed in
-ARG ssh_priv
-ARG ssh_pub
+# Allow SSH key to be passed in
+ARG SSH_KEY
 
-# Add SSH key for github repositories
-RUN mkdir -p /root/.ssh
-RUN chmod 700 /root/.ssh
+RUN apt-get update
+RUN apt-get install -y openssh-client
 
-ADD $ssh_priv /root/.ssh/id_rsa
-ADD $ssh_pub /root/.ssh/id_rsa.pub
+# 1. Create the SSH directory.
+# 2. Populate the private key file.
+# 3. Set the required permissions.
+# 4. Add github to our list of known hosts for ssh.
+RUN mkdir -p /root/.ssh/ && \
+    echo "$SSH_KEY" > /root/.ssh/id_rsa && \
+    chmod -R 600 /root/.ssh/ && \
+    ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
-# Set correct permissions for SSH keys
-RUN chmod 600 /root/.ssh/id_rsa
-RUN chmod 600 /root/.ssh/id_rsa.pub
+#Clone hypervisor-super repository and run setup script
+RUN apt-get install -y git
+
+RUN git clone git@github.com:securesystemslab/hypervisor-super.git --depth 1
+
+WORKDIR /bfbuild/hypervisor-super/scripts
+RUN bash setup.sh
+
+# Remove SSH keys from container
+RUN rm -rf /root/.ssh
+
+# New stage 
+
+FROM ubuntu:18.04
+
+# Copy repository from clone stage
+COPY --from=clone_stage /bfbuild/hypervisor-super /srv/bfbuild/hypervisor-super
 
 # Install dependencies for multicompiler and hypervisor at build stage
 RUN apt-get update && apt-get install -y \
@@ -24,21 +42,10 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     bzip2 \
     cmake \
-    git \
     libssl1.0-dev \
     libtool \
     ninja-build \
-    openssh-client \
     sudo \
     texinfo
 
-# Add github public key to known hosts
-RUN ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
-# Clone hypervisor-super repository and run setup script
-RUN git clone -b ubuntu18_04 git@github.com:securesystemslab/hypervisor-super.git --depth 1
-WORKDIR /bfbuild/hypervisor-super
-RUN bash setup.sh
-
-# Remove SSH keys from container
-RUN rm -rf /root/.ssh
