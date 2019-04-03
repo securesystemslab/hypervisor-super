@@ -26,7 +26,6 @@ RUN git clone git@github.com:securesystemslab/hypervisor-super.git --depth 1
 RUN apt-get install sudo
 
 WORKDIR /bfbuild/hypervisor-super
-RUN git clone git@github.com:/securesystemslab/multicompiler-automation.git multicompiler --depth 1
 RUN bash setup.sh
 
 # Remove SSH keys from container
@@ -36,20 +35,11 @@ RUN rm -rf /root/.ssh
 
 FROM ubuntu:18.04
 
+RUN apt-get update
+RUN apt-get install -y sudo
+
 # Copy repository from clone stage
-COPY --from=clone_stage /bfbuild/hypervisor-super /srv/bfbuild/hypervisor-super
+COPY --from=clone_stage /bfbuild/hypervisor-super /srv/bfbuild/hypervisor-super/
 
-# Install dependencies for multicompiler and hypervisor at build stage
-RUN apt-get update && apt-get install -y \
-    autotools-dev \
-    bison \
-    build-essential \
-    bzip2 \
-    cmake \
-    libssl1.0-dev \
-    libtool \
-    ninja-build \
-    sudo \
-    texinfo
-
-
+WORKDIR /srv/bfbuild/hypervisor-super/multicompiler
+RUN bash build.sh
