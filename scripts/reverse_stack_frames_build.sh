@@ -1,6 +1,6 @@
 #!/bin/bash -e
 MC_CFLAGS="-mllvm -reverse-stack-frames -mllvm -stack-frame-random-seed=16"
-MC_CXX_FLAGS=${MULTICOMPILER_C_FLAGS}
+MC_CXX_FLAGS=${MC_CFLAGS}
 MC_LD_FLAGS=""
 
 pushd ..
