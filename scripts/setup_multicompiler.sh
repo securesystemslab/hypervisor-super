@@ -1,6 +1,6 @@
 #!/bin/bash -e
 if [ ! -d multicompiler ]; then
-    git clone git@github.com:/securesystemslab/multicompiler-automation.git multicompiler
+    git clone --branch multicompiler70 git@github.com:/securesystemslab/multicompiler-automation.git multicompiler
 fi
 
 
