@@ -1,6 +1,6 @@
 #!/bin/bash -e
-MC_CFLAGS="-mllvm -reverse-stack-frames -frandom-seed=42"
-MC_CXX_FLAGS=${MC_CFLAGS}
+MC_CFLAGS="-mllvm -max-stack-pad-size=20 -frandom-seed=42"
+MC_CXX_FLAGS="${MC_CFLAGS}"
 MC_LD_FLAGS=""
 
 pushd ..

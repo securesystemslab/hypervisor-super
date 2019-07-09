@@ -1,5 +1,5 @@
 #!/bin/bash -e
-MC_CFLAGS="-mllvm -shuffle-stack-frames -mllvm -stack-frame-random-seed=16"
+MC_CFLAGS="-mllvm -shuffle-stack-frames -mllvm -stack-frame-random-seed=16 -frandom-seed=42"
 MC_CXX_FLAGS=${MC_CFLAGS}
 MC_LD_FLAGS=""
 

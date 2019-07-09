@@ -1,6 +1,6 @@
 #!/bin/bash -e
 MC_CFLAGS=""
-MC_CXX_FLAGS=${MULTICOMPILER_C_FLAGS}
+MC_CXX_FLAGS=""
 MC_LD_FLAGS=""
 
 pushd ..
