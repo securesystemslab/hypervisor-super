@@ -1,0 +1,280 @@
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/clang 
+Build flags: -isystem;/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/include/c++/v1;-isystem;/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/include;--target=x86_64-vmm-elf;--sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf;-fpic;-mno-red-zone;-mstackrealign;-fstack-protector-strong;-DVMM;-DUNIX;-DSYSV;-DGSL_THROW_ON_CONTRACT_VIOLATION;-DMALLOC_PROVIDED;-DCLOCK_MONOTONIC;-D_HAVE_LONG_DOUBLE;-D_LDBL_EQ_DBL;-D_POSIX_TIMERS;-D_POSIX_THREADS;-D_POSIX_PRIORITY_SCHEDULING;-D_UNIX98_THREAD_MUTEX_ATTRIBUTES;-U__STRICT_ANSI__;-D__SINGLE_THREAD__;-U__USER_LABEL_PREFIX__;-D__USER_LABEL_PREFIX__=;-D__ELF__;-x;c++;-std=c++17;-Xclang;-mllvm;-Xclang;-stack-element-percentage=50;-Xclang;-mllvm;-Xclang;-max-stack-element-pad-size=25;-frandom-seed=42;-msse;-msse2;-msse3
+Id flags:  
+
+The output was:
+1
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+/tmp/CMakeCXXCompilerId-bd7310.o: In function `main':
+CMakeCXXCompilerId.cpp:(.text+0x27): undefined reference to `__stack_chk_guard'
+CMakeCXXCompilerId.cpp:(.text+0xaa): undefined reference to `__stack_chk_guard'
+collect2: error: ld returned 1 exit status
+clang-7: error: linker (via gcc) command failed with exit code 1 (use -v to see invocation)
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/clang 
+Build flags: -isystem;/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/include/c++/v1;-isystem;/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/include;--target=x86_64-vmm-elf;--sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf;-fpic;-mno-red-zone;-mstackrealign;-fstack-protector-strong;-DVMM;-DUNIX;-DSYSV;-DGSL_THROW_ON_CONTRACT_VIOLATION;-DMALLOC_PROVIDED;-DCLOCK_MONOTONIC;-D_HAVE_LONG_DOUBLE;-D_LDBL_EQ_DBL;-D_POSIX_TIMERS;-D_POSIX_THREADS;-D_POSIX_PRIORITY_SCHEDULING;-D_UNIX98_THREAD_MUTEX_ATTRIBUTES;-U__STRICT_ANSI__;-D__SINGLE_THREAD__;-U__USER_LABEL_PREFIX__;-D__USER_LABEL_PREFIX__=;-D__ELF__;-std=c11;-Xclang;-mllvm;-Xclang;-stack-element-percentage=50;-Xclang;-mllvm;-Xclang;-max-stack-element-pad-size=25;-frandom-seed=42;-msse;-msse2;-msse3
+Id flags:  
+
+The output was:
+1
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+/tmp/CMakeCCompilerId-f68894.o: In function `main':
+CMakeCCompilerId.c:(.text+0x35): undefined reference to `__stack_chk_guard'
+CMakeCCompilerId.c:(.text+0xc7): undefined reference to `__stack_chk_guard'
+collect2: error: ld returned 1 exit status
+clang-7: error: linker (via gcc) command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_14cc9"
+[1/2] Building CXX object CMakeFiles/cmTC_14cc9.dir/CMakeCXXCompilerABI.cpp.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking CXX executable cmTC_14cc9
+FAILED: cmTC_14cc9 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_14cc9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_14cc9   && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_14cc9.dir/CMakeCXXCompilerABI.cpp.o: In function `main':
+CMakeCXXCompilerABI.cpp:(.text+0x12): undefined reference to `__stack_chk_guard'
+CMakeCXXCompilerABI.cpp:(.text+0x71): undefined reference to `__stack_chk_guard'
+CMakeCXXCompilerABI.cpp:(.text+0x97): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+
+
+Detecting CXX [-std=c++1z] compiler features failed to compile with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_25e4f"
+[1/2] Building CXX object CMakeFiles/cmTC_25e4f.dir/feature_tests.cxx.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking CXX executable cmTC_25e4f
+FAILED: cmTC_25e4f 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_25e4f.dir/feature_tests.cxx.o -o cmTC_25e4f   && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_25e4f.dir/feature_tests.cxx.o: In function `main':
+feature_tests.cxx:(.text+0x12): undefined reference to `__stack_chk_guard'
+feature_tests.cxx:(.text+0x45): undefined reference to `__stack_chk_guard'
+feature_tests.cxx:(.text+0x6b): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+
+
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_8fceb"
+[1/2] Building C object CMakeFiles/cmTC_8fceb.dir/CMakeCCompilerABI.c.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking C executable cmTC_8fceb
+FAILED: cmTC_8fceb 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_8fceb.dir/CMakeCCompilerABI.c.o -o cmTC_8fceb    && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_8fceb.dir/CMakeCCompilerABI.c.o: In function `main':
+CMakeCCompilerABI.c:(.text+0x19): undefined reference to `__stack_chk_guard'
+CMakeCCompilerABI.c:(.text+0x71): undefined reference to `__stack_chk_guard'
+CMakeCCompilerABI.c:(.text+0x97): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+
+
+Detecting C [-std=c11] compiler features failed to compile with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_c2c69"
+[1/2] Building C object CMakeFiles/cmTC_c2c69.dir/feature_tests.c.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking C executable cmTC_c2c69
+FAILED: cmTC_c2c69 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_c2c69.dir/feature_tests.c.o -o cmTC_c2c69    && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_c2c69.dir/feature_tests.c.o: In function `main':
+feature_tests.c:(.text+0x19): undefined reference to `__stack_chk_guard'
+feature_tests.c:(.text+0x45): undefined reference to `__stack_chk_guard'
+feature_tests.c:(.text+0x6b): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+
+
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_STDLIB failed with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_a1cd0"
+[1/2] Building CXX object CMakeFiles/cmTC_a1cd0.dir/src.cxx.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking CXX executable cmTC_a1cd0
+FAILED: cmTC_a1cd0 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_a1cd0.dir/src.cxx.o -o cmTC_a1cd0   && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_a1cd0.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0xf): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x26): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x43): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test SUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG failed with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_9fbc7"
+[1/2] Building CXX object CMakeFiles/cmTC_9fbc7.dir/src.cxx.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking CXX executable cmTC_9fbc7
+FAILED: cmTC_9fbc7 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_9fbc7.dir/src.cxx.o -o cmTC_9fbc7   && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_9fbc7.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0xf): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x26): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x43): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_WERROR_DATE_TIME failed with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_3573a"
+[1/2] Building C object CMakeFiles/cmTC_3573a.dir/src.c.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking C executable cmTC_3573a
+FAILED: cmTC_3573a 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_3573a.dir/src.c.o -o cmTC_3573a    && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_3573a.dir/src.c.o: In function `main':
+src.c:(.text+0xf): undefined reference to `__stack_chk_guard'
+src.c:(.text+0x26): undefined reference to `__stack_chk_guard'
+src.c:(.text+0x43): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_WERROR_DATE_TIME failed with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_669d7"
+[1/2] Building CXX object CMakeFiles/cmTC_669d7.dir/src.cxx.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking CXX executable cmTC_669d7
+FAILED: cmTC_669d7 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_669d7.dir/src.cxx.o -o cmTC_669d7   && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_669d7.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0xf): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x26): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x43): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW failed with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_af5e8"
+[1/2] Building C object CMakeFiles/cmTC_af5e8.dir/src.c.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking C executable cmTC_af5e8
+FAILED: cmTC_af5e8 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_af5e8.dir/src.c.o -o cmTC_af5e8    && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_af5e8.dir/src.c.o: In function `main':
+src.c:(.text+0xf): undefined reference to `__stack_chk_guard'
+src.c:(.text+0x26): undefined reference to `__stack_chk_guard'
+src.c:(.text+0x43): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW failed with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_e1f45"
+[1/2] Building CXX object CMakeFiles/cmTC_e1f45.dir/src.cxx.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking CXX executable cmTC_e1f45
+FAILED: cmTC_e1f45 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_e1f45.dir/src.cxx.o -o cmTC_e1f45   && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_e1f45.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0xf): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x26): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x43): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_CXX11 failed with the following output:
+Change Dir: /srv/bfbuild/hypervisor-super/build/depends/libcxxabi/x86_64-vmm-elf/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_acdbb"
+[1/2] Building CXX object CMakeFiles/cmTC_acdbb.dir/src.cxx.o
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+Warning! Using insecure random number generator. Do not use for security.
+[2/2] Linking CXX executable cmTC_acdbb
+FAILED: cmTC_acdbb 
+: && /srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld --sysroot=/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf -L/srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib -z max-page-size=4096 -z common-page-size=4096 -z relro -z now -nostdlib  --whole-archive /srv/bfbuild/hypervisor-super/build/prefixes/x86_64-vmm-elf/lib/libbfdso_static.a --no-whole-archive  -pie CMakeFiles/cmTC_acdbb.dir/src.cxx.o -o cmTC_acdbb   && :
+/srv/bfbuild/hypervisor-super/cmake/../multicompiler/tools/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000000360
+CMakeFiles/cmTC_acdbb.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0xf): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x26): undefined reference to `__stack_chk_guard'
+src.cxx:(.text+0x43): undefined reference to `__stack_chk_fail'
+ninja: build stopped: subcommand failed.
+
+Source file was:
+int main() { return 0; }
