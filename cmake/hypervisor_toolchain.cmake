@@ -1,7 +1,6 @@
 
 set(VMM_PREFIX_PATH ${CMAKE_CURRENT_LIST_DIR}/../base_build/prefixes/x86_64-vmm-elf)
 
-message(STATUS "CMAKE_SYSROOT: ${CMAKE_SYSROOT}")
 
 set(TOOLPATH ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/llvm/build)
 set(CMAKE_C_COMPILER ${TOOLPATH}/bin/clang)
