@@ -1,6 +1,6 @@
 
 set(VMM_PREFIX_PATH ${CMAKE_CURRENT_LIST_DIR}/../base_build/prefixes/x86_64-vmm-elf)
-
+set(HYPERVISOR_SRC ${CMAKE_CURRENT_LIST_DIR}/../hypervisor)
 
 set(TOOLPATH ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/llvm/build)
 set(CMAKE_C_COMPILER ${TOOLPATH}/bin/clang)
@@ -20,6 +20,7 @@ set(LLVM_CONFIG_PATH ${TOOLPATH}/bin/llvm-config)
 list(APPEND BF_FLAGS
       -isystem ${VMM_PREFIX_PATH}/include/c++/v1
       -isystem ${VMM_PREFIX_PATH}/include
+      -isystem ${HYPERVISOR_SRC}/bfsdk/include
 )
 
 list(APPEND BF_FLAGS
