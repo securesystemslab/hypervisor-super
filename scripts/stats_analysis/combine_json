@@ -18,5 +18,5 @@ if __name__ == "__main__":
           output[key] = current_stats[key]
     with open(OUTPUT_FILE, "w+") as fp:
       json.dump(output, fp, indent=1)
-  print("Analyzed {0} files. Wrote output to: {1}".format(num_files, OUTPUT_FILE))
+  print("Combined {0} files. Wrote output to: {1}".format(num_files, OUTPUT_FILE))
  
