@@ -10,8 +10,8 @@ else()
 endif()
 
 set(CMAKE_SYSTEM_NAME Linux)
-set(MULTICOMPILER_PATH ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/tools/bin)
-
+set(TOOLS_PATH ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/tools)
+set(MULTICOMPILER_PATH ${TOOLS_PATH}/bin)
 set(CLANG_BIN ${MULTICOMPILER_PATH}/clang)
 set(LD_BIN ${MULTICOMPILER_PATH}/ld)
 set(AR_BIN ${MULTICOMPILER_PATH}/ar)
