@@ -1,5 +1,5 @@
 #!/bin/bash -e
-MC_CFLAGS="-Xclang -mllvm -Xclang -stack-element-percentage=50 -Xclang -mllvm -Xclang -max-stack-element-pad-size=25 -frandom-seed=42"
+MC_CFLAGS="-mllvm -stack-element-percentage=50 -mllvm -max-stack-element-pad-size=25 -frandom-seed=42"
 MC_CXX_FLAGS="${MC_CFLAGS}"
 MC_LD_FLAGS=""
 
