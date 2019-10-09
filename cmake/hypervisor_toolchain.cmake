@@ -1,9 +1,16 @@
+# hypervisor_toolchain.cmake
+#
+# Used to build the Bareflank hypervisor with SafeStack library support using UCI
+# Multicompiler.
+#
+# Specify LLVM_BUILD_PATH on command line using: cmake <source_dir>
+# -DLLVM_BUILD_PATH=<LLVM_BUILD>
 
 set(VMM_PREFIX_PATH ${CMAKE_CURRENT_LIST_DIR}/../base_build/prefixes/x86_64-vmm-elf)
 set(HYPERVISOR_SRC ${CMAKE_CURRENT_LIST_DIR}/../hypervisor)
 
-set(TOOLPATH ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/llvm/build)
-set(CMAKE_C_COMPILER ${TOOLPATH}/bin/clang)
+set(CMAKE_C_COMPILER ${LLVM_BUILD_PATH}/bin/clang)
+set(CMAKE_CXX_COMPILER ${LLVM_BUILD_PATH}/bin/clang++)
 
 set(COMPILER_RT_BUILD_BUILTINS ON)
 set(COMPILER_RT_BUILD_SANITIZERS ON)
@@ -17,7 +24,7 @@ set(COMPILER_RT_HAS_STD_CXX11_FLAG OFF)
 set(CMAKE_C_COMPILER_TARGET x86_64-vmm-bareflank-elf)
 set(CMAKE_ASM_COMPILER_TARGET x86_64-vmm-bareflank-elf)
 #set(COMPILER_RT_DEFAULT_TARGET_ONLY ON)
-set(LLVM_CONFIG_PATH ${TOOLPATH}/bin/llvm-config)
+set(LLVM_CONFIG_PATH ${LLVM_BUILD_PATH}/bin/llvm-config)
 
 list(APPEND BF_FLAGS
       -isystem ${VMM_PREFIX_PATH}/include/c++/v1
@@ -69,6 +76,8 @@ string(REPLACE ";" " " _CXX_FLAGS "${_CXX_FLAGS}")
 string(REPLACE ";" " " _C_FLAGS "${_C_FLAGS}")
 set(CMAKE_C_FLAGS ${_C_FLAGS})
 set(CMAKE_CXX_FLAGS ${_CXX_FLAGS})
+
+set(SANITIZER_COMMON_CFLAGS ${CMAKE_CXX_FLAGS})
 
 string(CONCAT LD_FLAGS
   "--sysroot=${CMAKE_INSTALL_PREFIX} "
