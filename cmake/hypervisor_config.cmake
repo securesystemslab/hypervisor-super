@@ -1,16 +1,13 @@
-# Set release build for x86 architecture
+# Hypervisor CMake variables 
 set(BUILD_TYPE Release)
 set(BUILD_TARGET_ARCH x86_64)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(BUILD_SHARED_LIBS OFF)
-set(BUILD_STATIC_LIBS ON)
-set(SAFESTACK_RUNTIME_LIB ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/tools/lib/libclang_rt.safestack-x86_64.a)
-set(MULTICOMPILER_LLVM_PATH ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/llvm)
-set(ENABLE_BUILD_TEST OFF)
+set(BUILD_SHARED_LIBS ON)
+set(BUILD_STATIC_LIBS OFF)
+set(ENABLE_BUILD_TEST OFF) 
+set(ENABLE_BUILD_USERSPACE ON)
 
-# Uncomment these lines out to only build VMM components
-set(ENABLE_BUILD_USERSPACE OFF)
-
+set(MULTICOMPILER_LLVM_PATH ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/llvm CACHE PATH "Location of Multicompiler \"llvm\" directory")
 
 # Additional flags used for building the VMM components should be set to the
 # desired randomization flags.
