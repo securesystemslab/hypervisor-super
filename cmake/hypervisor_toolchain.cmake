@@ -1,7 +1,7 @@
 # hypervisor_toolchain.cmake
 #
-# Used to build the Bareflank hypervisor with SafeStack library support using UCI
-# Multicompiler.
+# Used to build COMPILER_RT with SafeStack library support targeting
+# the Bareflank hypervisor using UCI Multicompiler.
 #
 # Specify LLVM_BUILD_PATH on command line using: cmake <source_dir>
 # -DLLVM_BUILD_PATH=<LLVM_BUILD>
@@ -11,8 +11,10 @@ set(HYPERVISOR_SRC ${CMAKE_CURRENT_LIST_DIR}/../hypervisor)
 
 set(CMAKE_C_COMPILER ${LLVM_BUILD_PATH}/bin/clang)
 set(CMAKE_CXX_COMPILER ${LLVM_BUILD_PATH}/bin/clang++)
+set(CMAKE_CXX_COMPILER_WORKS TRUE)
+set(CMAKE_C_COMPILER_WORKS TRUE)
 
-set(COMPILER_RT_BUILD_BUILTINS ON)
+set(COMPILER_RT_BUILD_BUILTINS OFF)
 set(COMPILER_RT_BUILD_SANITIZERS ON)
 set(COMPILER_RT_SANITIZERS_TO_BUILD safestack)
 set(COMPILER_RT_BUILD_XRAY OFF)
