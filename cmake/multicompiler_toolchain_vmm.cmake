@@ -22,6 +22,9 @@ set(CMAKE_CXX_COMPILER ${CLANG_BIN})
 
 set(CMAKE_C_COMPILER_WORKS 1)
 set(CMAKE_CXX_COMPILER_WORKS 1)
+set(CMAKE_C_COMPILER_TARGET "x86_64-vmm-bareflank-elf")
+set(CMAKE_CXX_COMPILER_TARGET "x86_64-vmm-bareflank-elf")
+
 
 string(CONCAT LD_FLAGS
     "--sysroot=${CMAKE_INSTALL_PREFIX} "
