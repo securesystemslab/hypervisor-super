@@ -1,3 +1,5 @@
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 .PHONY: all
 all: hypervisor
 
@@ -9,7 +11,7 @@ multicompiler:
 hypervisor_using_multicompiler: build
 	mkdir -p hypervisor/build && \
 	cd hypervisor/build && \
-	cmake .. -DMULTICOMPILER_C_FLAGS="${MULTICOMPILER_C_FLAGS}" -DMULTICOMPILER_CXX_FLAGS="${MULTICOMPILER_CXX_FLAGS}" -DMULTICOMPILER_LD_FLAGS="${MULTICOMPILER_LD_FLAGS}" ${MULTICOMPILER_CMAKE_FLAGS} -DVMM_TOOLCHAIN_PATH=../../cmake/multicompiler_toolchain_vmm.cmake -DCONFIG=../../cmake/hypervisor_config.cmake -G Ninja && \
+	cmake .. -DMULTICOMPILER_C_FLAGS="${MULTICOMPILER_C_FLAGS}" -DMULTICOMPILER_CXX_FLAGS="${MULTICOMPILER_CXX_FLAGS}" -DMULTICOMPILER_LD_FLAGS="${MULTICOMPILER_LD_FLAGS}" ${MULTICOMPILER_CMAKE_FLAGS} -DVMM_TOOLCHAIN_PATH=$(ROOT_DIR)/cmake/multicompiler_toolchain_vmm.cmake -DCONFIG=$(ROOT_DIR)/cmake/hypervisor_config.cmake -G Ninja && \
 	ninja -v
 
 .PHONY: hypervisor
