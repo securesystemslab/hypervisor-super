@@ -1,7 +1,6 @@
 # hypervisor_toolchain.cmake
 #
-# Used to build COMPILER_RT with SafeStack library support targeting
-# the Bareflank hypervisor using UCI Multicompiler.
+# Used to cross compile compiler-rt for the Bareflank hypervisor
 #
 # Specify LLVM_BUILD_PATH on command line using: cmake <source_dir>
 # -DLLVM_BUILD_PATH=<LLVM_BUILD>
@@ -9,14 +8,15 @@
 set(VMM_PREFIX_PATH ${CMAKE_CURRENT_LIST_DIR}/../base_build/prefixes/x86_64-vmm-elf)
 set(HYPERVISOR_SRC ${CMAKE_CURRENT_LIST_DIR}/../hypervisor)
 
+set(LLVM_BUILD_PATH ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/tools)
+
+set(LD_BIN ${LLVM_BUILD_PATH}/bin/clang)
 set(CMAKE_C_COMPILER ${LLVM_BUILD_PATH}/bin/clang)
 set(CMAKE_CXX_COMPILER ${LLVM_BUILD_PATH}/bin/clang++)
 set(CMAKE_CXX_COMPILER_WORKS TRUE)
 set(CMAKE_C_COMPILER_WORKS TRUE)
 
 set(COMPILER_RT_BUILD_BUILTINS OFF)
-set(COMPILER_RT_BUILD_SANITIZERS ON)
-set(COMPILER_RT_SANITIZERS_TO_BUILD safestack)
 set(COMPILER_RT_BUILD_XRAY OFF)
 set(COMPILER_RT_BUILD_LIBFUZZER OFF)
 set(COMPILER_RT_BUILD_PROFILE OFF)
@@ -61,6 +61,7 @@ list(APPEND BF_FLAGS
     -msse
     -msse2
     -msse3
+    -ffunction-sections
 )
 
 list(APPEND BF_CXX_FLAGS
@@ -89,4 +90,20 @@ string(CONCAT LD_FLAGS
   "-z relro "
   "-z now "
   "-nostdlib "
+)
+
+set(CMAKE_C_LINK_EXECUTABLE
+    "${LD_BIN} ${LD_FLAGS} -pie <OBJECTS> -o <TARGET> <LINK_LIBRARIES> "
+)
+
+set(CMAKE_CXX_LINK_EXECUTABLE
+    "${LD_BIN} ${LD_FLAGS} -pie <OBJECTS> -o <TARGET> <LINK_LIBRARIES>"
+)
+
+set(CMAKE_C_CREATE_SHARED_LIBRARY
+    "${LD_BIN} ${LD_FLAGS} -shared <OBJECTS> -o <TARGET>"
+)
+
+set(CMAKE_CXX_CREATE_SHARED_LIBRARY
+    "${LD_BIN} ${LD_FLAGS} -shared <OBJECTS> -o <TARGET>"
 )

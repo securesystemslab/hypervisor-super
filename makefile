@@ -5,7 +5,7 @@ all: hypervisor
 
 .PHONY: multicompiler
 multicompiler:
-	$(MAKE) -C multicompiler install
+	./setup.sh
 
 .PHONY: build
 hypervisor_using_multicompiler: build
@@ -21,6 +21,22 @@ hypervisor:
 	cmake .. -G Ninja && \
 	ninja
 
+.PHONY: code_layout_rando
+code_layout_rando: compiler-rt/build/lib/clang/7.0.0/lib/linux/libclang_rt.code_layout_rando-x86_64.so multicompiler/tools/bin/clang base_build
+
+base_build:
+	./scripts/base_build.sh
+
+compiler-rt:
+	./setup.sh
+
+compiler-rt/build/lib/clang/7.0.0/lib/linux/libclang_rt.code_layout_rando-x86_64.so: compiler-rt
+	mkdir -p compiler-rt/build && \
+	cd compiler-rt/build && \
+	cmake .. -DCMAKE_TOOLCHAIN_FILE=$(ROOT_DIR)/cmake/hypervisor_toolchain.cmake -DCOMPILER_RT_BUILD_SANITIZERS=ON \
+	 -DCOMPILER_RT_SANITIZERS_TO_BUILD=code_layout_rando -G Ninja && \
+	ninja code_layout_rando
+
 .PHONY: test
 test:
 	cd hypervisor/build && \
@@ -29,4 +45,3 @@ test:
 .PHONY: clean
 clean:
 	rm -rf hypervisor/build
-
