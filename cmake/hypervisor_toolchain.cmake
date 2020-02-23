@@ -16,6 +16,14 @@ set(CMAKE_CXX_COMPILER ${LLVM_BUILD_PATH}/bin/clang++)
 set(CMAKE_CXX_COMPILER_WORKS TRUE)
 set(CMAKE_C_COMPILER_WORKS TRUE)
 
+# This would ideally be set to "Bareflank"
+# But then we would requite a Bareflank.cmake file in the
+# CMake/Platforms root. Maybe some day.
+set(CMAKE_SYSTEM_NAME "Generic")
+
+# Instead, let's do what Android does.
+set(BAREFLANK TRUE)
+
 set(COMPILER_RT_BUILD_BUILTINS OFF)
 set(COMPILER_RT_BUILD_XRAY OFF)
 set(COMPILER_RT_BUILD_LIBFUZZER OFF)
