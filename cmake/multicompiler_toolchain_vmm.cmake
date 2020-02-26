@@ -9,16 +9,26 @@ else()
     set(CMAKE_INSTALL_PREFIX "$ENV{CMAKE_INSTALL_PREFIX}")
 endif()
 
-set(CMAKE_SYSTEM_NAME Linux)
-set(TOOLS_PATH ${CMAKE_CURRENT_LIST_DIR}/../multicompiler/tools)
-set(MULTICOMPILER_PATH ${TOOLS_PATH}/bin)
-set(CLANG_BIN ${MULTICOMPILER_PATH}/clang)
-set(LD_BIN ${MULTICOMPILER_PATH}/ld)
-set(AR_BIN ${MULTICOMPILER_PATH}/ar)
-set(NM_BIN ${MULTICOMPILER_PATH}/nm)
-set(AS_BIN ${MULTICOMPILER_PATH}/as)
-set(CMAKE_C_COMPILER ${CLANG_BIN})
-set(CMAKE_CXX_COMPILER ${CLANG_BIN})
+# This would ideally be set to "Bareflank"
+# But then we would requite a Bareflank.cmake file in the
+# CMake/Platforms root. Maybe some day.
+#set(CMAKE_SYSTEM_NAME "Generic")
+
+set(CMAKE_SYSTEM_NAME "Linux")
+
+if (DEFINED ENV{CLANG_BIN})
+    set(CMAKE_C_COMPILER $ENV{CLANG_BIN})
+    set(CMAKE_CXX_COMPILER $ENV{CLANG_BIN})
+else()
+    message(FATAL_ERROR "Unable to find clang")
+endif()
+
+
+if(DEFINED ENV{LD_BIN})
+    set(LD_BIN $ENV{LD_BIN})
+else()
+    set(LD_BIN ${CMAKE_INSTALL_PREFIX}/bin/ld)
+endif()
 
 message(STATUS "MULTICOMPILER_CXX_FLAGS ${MULTICOMPILER_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${MULTICOMPILER_CXX_FLAGS}")
@@ -27,13 +37,20 @@ message(STATUS "MULTICOMPILER_LD_FLAGS ${MULTICOMPILER_LD_FLAGS}")
 set(LD_FLAGS "{LD_FLAGS} ${MULTICOMPILER_LD_FLAGS}")
 
 message(STATUS "MULTICOMPILER_C_FLAGS ${MULTICOMPILER_C_FLAGS}")
-set(CMAKE_C_FLAGS "${MULTICOMPILER_C_FLAGS}")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MULTICOMPILER_C_FLAGS}")
+
+if (ENABLE_CODE_LAYOUT_RANDO)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffunction-sections")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ffunction-sections")
+endif()
 
 set(CMAKE_C_COMPILER_WORKS 1)
 set(CMAKE_CXX_COMPILER_WORKS 1)
-set(CMAKE_C_COMPILER_TARGET "x86_64-vmm-bareflank-elf")
-set(CMAKE_CXX_COMPILER_TARGET "x86_64-vmm-bareflank-elf")
+#set(CMAKE_C_COMPILER_TARGET "x86_64-vmm-bareflank-elf")
+#set(CMAKE_CXX_COMPILER_TARGET "x86_64-vmm-bareflank-elf")
 
+set(CMAKE_C_COMPILER_TARGET "x86_64-vmm-elf")
+set(CMAKE_CXX_COMPILER_TARGET "x86_64-vmm-elf")
 
 string(CONCAT LD_FLAGS
     "--sysroot=${CMAKE_INSTALL_PREFIX} "
@@ -45,19 +62,18 @@ string(CONCAT LD_FLAGS
     "-nostdlib "
 )
 
-if(EXISTS "${CMAKE_INSTALL_PREFIX}/lib/libbfdso_static.a")
-    string(CONCAT LD_FLAGS
-        "${LD_FLAGS} --whole-archive ${CMAKE_INSTALL_PREFIX}/lib/libbfdso_static.a --no-whole-archive "
-    )
-endif()
-
 set(CMAKE_C_ARCHIVE_CREATE
-    "${AR_BIN} qc <TARGET> <OBJECTS>"
+    "ar qc <TARGET> <OBJECTS>"
 )
 
 set(CMAKE_CXX_ARCHIVE_CREATE
-    "${AR_BIN} qc <TARGET> <OBJECTS>"
+    "ar qc <TARGET> <OBJECTS>"
 )
+
+if(ENABLE_CODE_LAYOUT_RANDO)
+    string(APPEND LD_FLAGS " --traplinker-no-libs --traplinker-no-textramp ")
+    set(LD_BIN "${CMAKE_INSTALL_PREFIX}/bin/traplinker ${LD_BIN}")
+endif()
 
 string(CONCAT LD_FLAGS ${LD_FLAGS} ${MULTICOMPILER_LD_FLAGS})
 set(CMAKE_C_LINK_EXECUTABLE
