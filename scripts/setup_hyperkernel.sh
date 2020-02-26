@@ -1,2 +1,2 @@
 #!/bin/bash -e
-git clone -b thunderlane_multicompiler git@github.com:securesystemslab/hypervisor.git
+git clone -b code_layout_rando git@github.com:securesystemslab/hypervisor.git
