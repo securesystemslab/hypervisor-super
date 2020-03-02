@@ -40,8 +40,8 @@ message(STATUS "MULTICOMPILER_C_FLAGS ${MULTICOMPILER_C_FLAGS}")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MULTICOMPILER_C_FLAGS}")
 
 if (ENABLE_CODE_LAYOUT_RANDO)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffunction-sections")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ffunction-sections")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffunction-sections -fcode-layout-rando")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ffunction-sections -fcode-layout-rando")
 endif()
 
 set(CMAKE_C_COMPILER_WORKS 1)
